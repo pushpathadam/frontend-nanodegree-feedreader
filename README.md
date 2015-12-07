@@ -1,3 +1,20 @@
+# Instructions
+
+Download the repository. Open index.html in your browser.
+
+# Additional Notes
+
+These discussions are a good source of info for the last 2 questions, which are a bit more complicated than the examples.   
+https://discussions.udacity.com/t/psa-two-important-notes-about-jquery-jasmine-jquery/36742
+https://discussions.udacity.com/t/problem-with-testing-if-menu-changes-when-menu-icon-is-clicked/26627/3
+http://api.jquery.com/trigger/
+https://discussions.udacity.com/t/last-test-suit-new-feed-selection-not-working/26375/2
+
+
+-------
+
+From Udacity.
+
 # Project Overview
 
 In this project you are given a web-based application that reads RSS feeds. The original developer of this application clearly saw the value in testing, they've already included [Jasmine](http://jasmine.github.io/) and even started writing their first test suite! Unfortunately, they decided to move on to start their own company and we're now left with an application with an incomplete test suite. That's where you come in.
