@@ -74,11 +74,23 @@ $(function() {
          *
          * default state of body is class menu-hidden
          */
-
+/*
+        beforeEach(function() {
+            jasmine.addMatchers({
+                toHaveClass:function(className) {
+                    return this.actual.hasClass(className);
+                }
+            });
+        });
+    */
         describe('is hidden by default',function(){
             it('has a class',function(){
+
                 expect(document.body.className).toBeDefined();
-                expect(document.body.className).toMatch("menu-hidden");
+                //expect(document.body.className).toMatch('menu-hidden');
+                // Replace with more robust Jquery test in case of multiple classes
+                //expect(myElement.hasClass('menu-hidden')).toBeTruthy();
+                expect(document.body).toHaveClass('menu-hidden');
 
             }); // Close it has a class
         }); //Close is hidden by default
@@ -142,16 +154,27 @@ $(function() {
         beforeEach(function (done) {
             $('feed').empty();
 
+            /*
             loadFeed(0, function(){
                 oldContent = $('.feed').find('h2').text();
                 //console.log("debug old:", oldContent);
             });
 
             loadFeed(1,function(){
-                newContent = $('.feed').find('h2').text();;
+                newContent = $('.feed').find('h2').text();
                 //console.log("debug new:",newContent);
                 done();
             });
+            */
+
+            // Nested done per reviewer's notes to avoid parallel loadFeed calls
+            loadFeed(0,function(){
+                oldContent = $('.feed').find('h2').text();
+                loadFeed(1,function(){
+                    newContent = $('.feed').find('h2').text();
+                    done();
+                });
+            })
         }); // Close beforeEach
 
         it('has loaded and content has changed', function(done){
